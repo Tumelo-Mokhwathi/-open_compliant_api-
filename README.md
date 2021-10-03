@@ -1,1 +1,1 @@
-# -open_compliant_api-
+# open_compliant_api
