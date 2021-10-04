@@ -60,7 +60,7 @@ namespace open_api.Services
 
         public async Task<List<Models.Result>> SearchAsync(string jokesQuery, string queryPeople)
         {
-            var response = await GetSearchResponseAsync($"{_baseUrl.CategoriesBaseUrl}search?query={jokesQuery}&&{_baseUrl.SwapiBaseUrl}?search={queryPeople}");
+            var response = await GetResponseAsync($"{_baseUrl.CategoriesBaseUrl}search?query={jokesQuery}&&{_baseUrl.SwapiBaseUrl}?search={queryPeople}");
 
             return JsonConvert.DeserializeObject<Models.SearchResponse>(response).Result.Select(r => new Models.Result
             {
@@ -76,15 +76,6 @@ namespace open_api.Services
         }
 
         private async Task<string> GetResponseAsync(string baseUrl)
-        {
-            client.DefaultRequestHeaders.Add("Accept", "*/*");
-
-            var response = await client.GetStringAsync(baseUrl).ConfigureAwait(false);
-
-            return response;
-        }
-
-        private async Task<string> GetSearchResponseAsync(string baseUrl)
         {
             client.DefaultRequestHeaders.Add("Accept", "*/*");
 
