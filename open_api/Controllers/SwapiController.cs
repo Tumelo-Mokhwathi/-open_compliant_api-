@@ -30,6 +30,6 @@ namespace open_api.Controllers
             ActionResponse.Success(
                 HttpStatusCode.OK,
                 await _service.GetPeopleAsync().ConfigureAwait(false),
-                $"{EndpointPrefix}swapi");
+                $"{EndpointPrefix}getpeople");
     }
 }

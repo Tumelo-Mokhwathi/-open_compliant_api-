@@ -29,7 +29,7 @@ namespace open_api.Controllers
             ActionResponse.Success(
                 HttpStatusCode.OK,
                 await _service.SearchAsync(jokesQuery, queryPeople).ConfigureAwait(false),
-                $"{EndpointPrefix}search");
+                $"{EndpointPrefix}getsearchresult");
 
     }
 }
